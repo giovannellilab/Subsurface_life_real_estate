@@ -1,0 +1,22 @@
+{
+  "acquisition_method": "User downloaded full GSS CSV after LPSN registration; original supplied locally",
+  "bytes": 15652936,
+  "citation": "Freese HM, Meier-Kolthoff JP, Sardà Carbasse J, Afolayan AO, Göker M (2026). TYGS and LPSN in 2025. Nucleic Acids Research 54:D884–D891. doi:10.1093/nar/gkaf1110.",
+  "credentials": "Not accessed or stored",
+  "download_date": "2026-09-14",
+  "download_date_basis": "Filename date and user report of download in this session; exact download timestamp not supplied",
+  "download_timestamp_utc": null,
+  "exact_download_url": null,
+  "filename": "lpsn_gss_2026-09-14.csv",
+  "format_url": "https://lpsn.dsmz.de/text/lpsn-download-formats",
+  "license": "CC BY-SA 4.0",
+  "path": "data/raw/lpsn/lpsn_gss_2026-09-14.csv",
+  "registered_date": "2026-09-14",
+  "reuse_notes": "Attribute source, cite requested reference and access date; retain taxon-page links for electronic redistribution; share-alike applies to adapted material. License-compliant commercial use allowed. Automated remote acquisition only through official downloads/API or permission.",
+  "sha256": "f57a015a7d52e6db2d1a3a38130db3be7e82c89f04b3bf4f67a36fe4dd5872eb",
+  "source_id": "lpsn_gss_2026-09-14",
+  "source_url": "https://lpsn.dsmz.de/downloads",
+  "source_version": "GSS export dated 2026-09-14 in supplied filename; no release ID supplied",
+  "terms_access_date": "2026-09-14",
+  "terms_url": "https://lpsn.dsmz.de/text/copyright"
+}
