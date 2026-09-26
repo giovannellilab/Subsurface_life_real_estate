@@ -1,0 +1,30 @@
+:root { --ink:#15231f; --muted:#52645e; --paper:#f7f6f1; --panel:#ffffff; --line:#d8ddd8; --accent:#086b5d; --warm:#f4dc9b; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); font:17px/1.6 Georgia, 'Times New Roman', serif; }
+.hero { padding:4.5rem max(1.5rem, calc((100% - 68rem)/2)); color:#fff; background:linear-gradient(125deg,#082f2a,#12544a 60%,#2d7867); }
+.hero h1 { margin:.1rem 0; font-size:clamp(2.5rem,6vw,4.75rem); line-height:1.03; letter-spacing:-.04em; }
+.eyebrow { margin:0; color:#b7e4d7; font:700 .78rem/1.2 system-ui,sans-serif; letter-spacing:.15em; text-transform:uppercase; }
+.subtitle { max-width:45rem; margin:1rem 0 1.5rem; font-size:1.25rem; }
+.notice { max-width:56rem; margin:0; padding:.85rem 1rem; color:#332500; background:var(--warm); border-left:5px solid #d19618; }
+main { max-width:68rem; margin:auto; padding:2rem 1.5rem 4rem; }
+section { margin:2.8rem 0; }
+h2 { margin:0 0 .75rem; font:700 clamp(1.55rem,3vw,2.25rem)/1.2 system-ui,sans-serif; letter-spacing:-.025em; }
+p { max-width:72ch; }
+a { color:var(--accent); text-underline-offset:.15em; }
+code { font:.86em ui-monospace,SFMono-Regular,Consolas,monospace; }
+.metric-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(13rem,1fr)); gap:1rem; margin:1.2rem 0; }
+.metric-grid article { min-height:9rem; padding:1.1rem; background:var(--panel); border-top:4px solid var(--accent); box-shadow:0 1px 3px #15231f18; }
+.metric-grid strong { display:block; font:700 2rem/1.1 system-ui,sans-serif; color:var(--accent); }
+.metric-grid span { display:block; margin-top:.55rem; color:var(--muted); font-size:.9rem; }
+.table-wrap { overflow-x:auto; background:var(--panel); box-shadow:0 1px 3px #15231f18; }
+table { width:100%; border-collapse:collapse; min-width:37rem; }
+caption { padding:1rem; text-align:left; font-weight:700; }
+th,td { padding:.65rem .85rem; text-align:left; border-top:1px solid var(--line); }
+th { color:var(--muted); font:700 .78rem/1.2 system-ui,sans-serif; text-transform:uppercase; letter-spacing:.04em; }
+figure { margin:2rem 0; padding:1rem; background:var(--panel); box-shadow:0 1px 3px #15231f18; }
+figure img { display:block; width:100%; height:auto; }
+figcaption { margin-top:.75rem; color:var(--muted); font-size:.9rem; }
+li { max-width:67ch; margin:.45rem 0; }
+footer { padding:1.5rem; color:#d8e9e3; background:#082f2a; text-align:center; font:.85rem system-ui,sans-serif; }
+footer p { margin:0 auto; }
+@media (max-width: 40rem) { body { font-size:16px; } .hero { padding-top:3rem; padding-bottom:3rem; } }

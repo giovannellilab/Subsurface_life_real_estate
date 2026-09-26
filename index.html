@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A living scientific evidence report on microbial dimensions and physical constraints on subsurface habitability.">
+  <title>Subsurface Life Real Estate — Living Research Report</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Living research report</p>
+    <h1>Subsurface Life Real Estate</h1>
+    <p class="subtitle">A microbial cell dimensions × pore and fracture geometry × subsurface habitability framework.</p>
+    <p class="notice"><strong>Living Research Report / Work in progress.</strong> Analyses and interpretations may change as data coverage, source verification, and the scientific framework develop.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="question">
+      <h2 id="question">Current scientific question</h2>
+      <p>What limits do microbial cell dimensions and morphology place on physical access to pore throats, connected pore networks, and fracture apertures in the subsurface? The project is assembling the evidence needed to answer that question without assuming that a database-reported dimension already represents a transit-relevant cell geometry.</p>
+    </section>
+
+    <section aria-labelledby="evidence">
+      <h2 id="evidence">Current state of evidence</h2>
+      <p>Milestone 1 establishes a reproducible, source-preserving census of BacDive type-strain morphology records and an offline LPSN GSS cross-check. It reports source dimensions, nomenclature evidence, missingness, and quality-control signals. It does <strong>not</strong> yet estimate cell volume or diameter, model pore accessibility, or claim a representative distribution for all prokaryotes.</p>
+    </section>
+
+    <section aria-labelledby="census">
+      <h2 id="census">Milestone 1 census</h2>
+      <div class="metric-grid">
+        <article><strong>101,320</strong><span>records indexed from documented BacDive searches</span></article>
+        <article><strong>22,122</strong><span>returned records with exact BacDive <code>type strain: "yes"</code></span></article>
+        <article><strong>25,883</strong><span>processed rows: 14,352 observations and 11,531 explicit missing-value placeholders</span></article>
+        <article><strong>5,600</strong><span>strains with normalized length and width in one source observation</span></article>
+      </div>
+      <p>The population is an operational census for the documented searches and 2026-09-14 access date. It is not a provider-certified atomic snapshot or a claim of universal taxonomic coverage.</p>
+    </section>
+
+    <section aria-labelledby="results">
+      <h2 id="results">Descriptive dimension evidence</h2>
+      <p>The analysis-eligible observation subset excludes provisional complex, conflicting, and ambiguous morphology contexts for descriptive summaries only. It remains observation-level: repeated reports are neither averaged nor made into a single species representative.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Analysis-eligible reported dimensions, all prokaryote observations</caption>
+          <thead><tr><th>Value</th><th>N</th><th>Median (µm)</th><th>5th–95th percentile (µm)</th></tr></thead>
+          <tbody>
+            <tr><td>Width minimum</td><td>4,647</td><td>0.55</td><td>0.25–1.20</td></tr>
+            <tr><td>Width midpoint</td><td>4,647</td><td>0.60</td><td>0.30–1.25</td></tr>
+            <tr><td>Width maximum</td><td>4,647</td><td>0.70</td><td>0.35–1.40</td></tr>
+            <tr><td>Length minimum</td><td>4,735</td><td>1.50</td><td>0.60–5.00</td></tr>
+            <tr><td>Length midpoint</td><td>4,735</td><td>1.95</td><td>0.80–6.00</td></tr>
+            <tr><td>Length maximum</td><td>4,735</td><td>2.10</td><td>0.90–8.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>For minimum width, 49.00% of eligible observations are at or below 0.5 µm, 93.14% at or below 1 µm, and 99.33% at or below 2 µm. These are source-conditioned descriptive results, not pore-throat thresholds.</p>
+      <figure>
+        <img src="assets/width_ecdf.png" alt="Empirical cumulative distribution of reported cell-width bounds from analysis-eligible observations.">
+        <figcaption>Observation-level empirical cumulative distribution of reported width bounds. Derived locally from the Milestone 1 processed outputs.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="qc">
+      <h2 id="qc">Scientific quality control</h2>
+      <p>LPSN GSS supports 21,201 strain records with name-and-type evidence; 83 are name-supported with unresolved type confirmation, 217 are status-review cases, 597 names are unmatched, and 24 have ambiguous exact matches. BacDive/LPSN disagreements are retained as review signals: 1,188 embedded-name discrepancies, 4,961 deposits linked to other LPSN taxa, and 84 no-overlap type-deposit cases.</p>
+      <p>Scientific QC v1 reviewed 1,288 suspect observations. Two have high-confidence, source-verified unit overlays; 1,286 remain unresolved. Raw and normalized source values remain immutable, and overlays do not replace them.</p>
+      <figure>
+        <img src="assets/species_width_ecdfs.png" alt="Empirical cumulative distributions for species-level canonical width minimum, midpoint, and maximum values.">
+        <figcaption>Species-level canonical width distributions under the stated QC and nomenclature-selection rules. The figure is derived from selected analytical output, not a redistribution of source records.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="interpretation">
+      <h2 id="interpretation">Current interpretation and claim boundaries</h2>
+      <p>Under the stated selection rules, the canonical species-level minimum-width median is 0.55 µm for 4,452 strictly LPSN-supported species. The 1 µm value lies near the upper part of this source-conditioned canonical distribution. This supports a limited descriptive observation only. It does not establish a universal microbial width, a pore-accessibility limit, fracture transit, or the habitability of any subsurface setting.</p>
+      <p>Coverage varies across source taxonomic labels and remains a database-coverage association after taxonomy harmonization. Complex morphologies, source ambiguity, multiple observations, and unresolved scale anomalies prevent direct geometric interpretation.</p>
+    </section>
+
+    <section aria-labelledby="next">
+      <h2 id="next">Unresolved questions and next analytical steps</h2>
+      <ul>
+        <li>Define defensible geometry conventions for rods, cocci, filaments, spores, aggregates, and pleomorphic cells.</li>
+        <li>Complete primary-source review for unresolved unit and scale anomalies.</li>
+        <li>Establish a scientific policy for taxonomic reconciliation and dependence among observations.</li>
+        <li>Specify pore-throat, network-connectivity, and fracture-aperture models before inferring physical accessibility.</li>
+        <li>Quantify how source coverage and taxonomic representation constrain extrapolation to subsurface communities.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="provenance">
+      <h2 id="provenance">Provenance and reproducibility</h2>
+      <p>Generated 2026-09-26 from the project’s Milestone 1 documentation and selected locally derived figures. Source repository: <a href="https://github.com/giovannellilab/Subsurface_life_real_estate">giovannellilab/Subsurface_life_real_estate</a>. Source main commit: <a href="https://github.com/giovannellilab/Subsurface_life_real_estate/commit/129b7123d4511439dbb21a23e23888f00f94ba26"><code>129b7123d4511439dbb21a23e23888f00f94ba26</code></a>.</p>
+      <p>Scientific basis: <a href="https://github.com/giovannellilab/Subsurface_life_real_estate/blob/main/README.md">README</a>, <a href="https://github.com/giovannellilab/Subsurface_life_real_estate/blob/main/docs/FULL_CENSUS_REPORT.md">full census report</a>, <a href="https://github.com/giovannellilab/Subsurface_life_real_estate/blob/main/docs/SCIENTIFIC_QC_V1_REPORT.md">scientific QC report</a>, <a href="https://github.com/giovannellilab/Subsurface_life_real_estate/blob/main/docs/SCIENTIFIC_REVIEW.md">scientific review</a>, <a href="https://github.com/giovannellilab/Subsurface_life_real_estate/blob/main/docs/SOURCE_ASSESSMENT.md">source assessment</a>, and <a href="https://github.com/giovannellilab/Subsurface_life_real_estate/tree/main/docs/provenance">provenance records</a>.</p>
+      <p>Raw BacDive responses, the downloaded LPSN CSV, acquisition caches, manifests, and complete processed datasets are deliberately excluded from this site.</p>
+    </section>
+  </main>
+  <footer><p>Subsurface Life Real Estate · Living scientific evidence report · 2026-09-26</p></footer>
+</body>
+</html>
