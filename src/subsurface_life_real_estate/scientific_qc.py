@@ -23,6 +23,7 @@ import numpy as np
 from scipy.stats import chi2_contingency, spearmanr
 
 from .acquisition import digest, json_bytes
+from .plotting import viridis_colors
 
 
 COMPLEX_CLASSES = {
@@ -549,9 +550,10 @@ def morphology_summary(rows: list[dict], eligible: list[dict]) -> list[dict]:
 
 
 def _plot_species_ecdf(ecdf: list[dict], path: Path) -> None:
-    colors = {"width_min_um": "#3f7cac", "width_midpoint_um": "#5fa777", "width_max_um": "#bd6b5e"}
+    measures = ("width_min_um", "width_midpoint_um", "width_max_um")
+    colors = dict(zip(measures, viridis_colors(len(measures))))
     fig, axis = plt.subplots(figsize=(7, 5))
-    for measure in ("width_min_um", "width_midpoint_um", "width_max_um"):
+    for measure in measures:
         values = [row for row in ecdf if row["measure"] == measure]
         axis.step([row["value_um"] for row in values], [row["ecdf"] for row in values], where="post",
                   label=measure.replace("_um", "").replace("_", " "), color=colors[measure])

@@ -21,6 +21,7 @@ import numpy as np
 from scipy.stats import chi2_contingency
 
 from .acquisition import digest, json_bytes
+from .plotting import viridis_colors
 
 
 DIMENSIONS = {
@@ -212,7 +213,7 @@ def _plot_coverage(coverage: list[dict], path: Path) -> None:
     labels = [row["group"] for row in coverage]
     values = [row["morphology_coverage_fraction"] for row in coverage]
     fig, axis = plt.subplots(figsize=(max(8, len(labels) * 0.45), 5))
-    axis.bar(range(len(labels)), values, color="#3f7cac")
+    axis.bar(range(len(labels)), values, color=viridis_colors(len(values)))
     axis.set_ylim(0, 1)
     axis.set_ylabel("Fraction with any structured morphology")
     axis.set_xticks(range(len(labels)), labels, rotation=60, ha="right")
@@ -224,7 +225,7 @@ def _plot_coverage(coverage: list[dict], path: Path) -> None:
 
 def _plot_ecdf(ecdf: list[dict], path: Path) -> None:
     fig, axis = plt.subplots(figsize=(7, 5))
-    axis.step([r["width_um"] for r in ecdf], [r["ecdf"] for r in ecdf], where="post", color="#3f7cac")
+    axis.step([r["width_um"] for r in ecdf], [r["ecdf"] for r in ecdf], where="post", color=viridis_colors(1)[0])
     axis.set_xscale("log")
     axis.set_xlabel("Reported minimum width (µm; logarithmic scale)")
     axis.set_ylabel("Empirical cumulative fraction")
