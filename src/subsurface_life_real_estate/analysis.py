@@ -18,7 +18,7 @@ os.environ.setdefault("MPLCONFIGDIR", "/tmp/subsurface-life-real-estate-mpl")
 
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.stats import chi2_contingency
+from scipy.stats import chi2_contingency, gaussian_kde
 
 from .acquisition import digest, json_bytes
 from .plotting import viridis_colors
@@ -234,6 +234,66 @@ def _plot_ecdf(ecdf: list[dict], path: Path) -> None:
     fig.tight_layout()
     fig.savefig(path, dpi=180)
     plt.close(fig)
+
+
+def plot_dimension_density(observations_path: str | Path, output_dir: str | Path) -> dict:
+    """Plot KDEs of analysis-eligible reported width and length midpoints.
+
+    The density is calculated on log10-transformed micrometre values, while the
+    displayed horizontal axes remain in micrometres on a logarithmic scale.
+    This preserves all positive selected values, including values flagged for
+    separate review, without silently clipping the long tails.
+    """
+    source = Path(observations_path)
+    rows = _jsonl(source)
+    selections = {}
+    for axis_name in ("width", "length"):
+        values = [
+            _value(row, f"{axis_name}_midpoint_um")
+            for row in rows
+            if _clean_axis(row, f"{axis_name}_min_um")
+            and _value(row, f"{axis_name}_midpoint_um") is not None
+        ]
+        selections[axis_name] = np.asarray(values, dtype=float)
+    if any(values.size < 2 or np.any(values <= 0) for values in selections.values()):
+        raise ValueError("Dimension-density figure requires at least two positive eligible midpoints per axis")
+
+    output = Path(output_dir)
+    plots = output / "plots"
+    plots.mkdir(parents=True, exist_ok=True)
+    figure_path = plots / "dimension_density.png"
+    figure, axes = plt.subplots(1, 2, figsize=(11, 4.8), sharey=False)
+    for plot_axis, (axis_name, values), color in zip(axes, selections.items(), viridis_colors(2)):
+        log_values = np.log10(values)
+        grid = np.linspace(log_values.min(), log_values.max(), 512)
+        density = gaussian_kde(log_values)(grid)
+        x_values = np.power(10.0, grid)
+        plot_axis.plot(x_values, density, color=color, linewidth=2)
+        plot_axis.fill_between(x_values, density, color=color, alpha=0.18)
+        plot_axis.set_xscale("log")
+        plot_axis.set_xlabel(f"Reported {axis_name} midpoint (µm; logarithmic scale)")
+        plot_axis.set_ylabel("Kernel density (per log₁₀ µm)")
+        plot_axis.set_title(f"Analysis-eligible cell {axis_name}s (N={values.size:,})")
+        plot_axis.grid(alpha=0.25)
+    figure.suptitle("Reported cell-dimension midpoint distributions")
+    figure.tight_layout()
+    figure.savefig(figure_path, dpi=180)
+    plt.close(figure)
+
+    provenance = {
+        "figure": str(figure_path),
+        "source_observations": str(source),
+        "source_observations_sha256": digest(source.read_bytes()),
+        "population": "BacDive type-strain source observations with parsed midpoint values and no provisional complex, conflicting, or ambiguous morphology class",
+        "dimensions": {
+            name: {"n": int(values.size), "value": f"reported {name} midpoint in µm"}
+            for name, values in selections.items()
+        },
+        "transformation": "Gaussian kernel density estimated on log10-transformed positive midpoint values; x axes display µm on a logarithmic scale.",
+        "outlier_handling": "No selected values were removed or clipped; existing eligibility filtering is recorded above.",
+    }
+    _write(output / "dimension_density_provenance.json", json_bytes(provenance))
+    return provenance
 
 
 def analyze(observations_path: str | Path, output_dir: str | Path) -> dict:
