@@ -164,8 +164,7 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
-/site
+# MkDocs builds use this conventional output directory. The tracked static Living Report source is also site/, so no /site ignore rule is used.
 
 # mypy
 .mypy_cache/
