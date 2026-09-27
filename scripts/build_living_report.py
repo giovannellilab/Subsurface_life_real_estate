@@ -18,6 +18,7 @@ ASSETS = {
     "reference_comparison_diameter_distributions.svg": ROOT / "data/processed/reference_lithology_dataset_v1/analysis/plots/comparison_diameter_distributions.svg",
     "reference_microbial_width_ecdfs.svg": ROOT / "data/processed/reference_lithology_dataset_v1/analysis/plots/microbial_width_ecdfs_reference_v1.svg",
     "reference_comparison_diameter_overlap.svg": ROOT / "data/processed/reference_lithology_dataset_v1/analysis/plots/comparison_diameter_overlap_midpoint.svg",
+    "pore_microbe_comparison_ecdfs.svg": ROOT / "data/processed/reference_lithology_dataset_v1/analysis/plots/pore_microbe_comparison_ecdfs.svg",
 }
 
 def build(output: Path) -> None:

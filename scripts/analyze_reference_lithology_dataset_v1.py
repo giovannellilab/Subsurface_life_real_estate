@@ -113,11 +113,16 @@ def main():
   lab=f'{g[2]} | {g[5]} | {g[4]} | {g[1]}'
   ser.append((lab,pts,colors.get(g[2],'#555555')))
  svg('comparison_diameter_distributions.svg','Comparison-diameter distributions','Comparison diameter (µm; log; explicit analytical field)','Equal-sample cumulative source weight',ser)
+ pore_microbe_series=list(ser)
+ for metric,color in [('width_minimum','#287271'),('width_midpoint','#e07a5f'),('width_maximum','#5b6c99')]:
+  pore_microbe_series.append((f'cultured species {metric}',[(x,(i+1)/len(w[metric])) for i,x in enumerate(w[metric][::5])],color))
+ svg('pore_microbe_comparison_ecdfs.svg','Pore × microbe proof of concept: comparison-diameter ECDFs','Geological comparison diameter or cultured width (µm; log)','Cumulative fraction / source weight',pore_microbe_series)
  ser=[]
  for index,r in enumerate(summary, start=1):
   if r['microbial_width_metric']=='width_midpoint':
    ser.append((f"{r['lithology']} | {r['comparison_role']} | {r['source_id']}",[(index,float(r['equal_sample_median_comparison_diameter_overlap']))],colors.get(r['lithology'],'#555555')))
  svg('comparison_diameter_overlap_midpoint.svg','Comparison-diameter overlap with cultured midpoint width','Method-labelled group (point positions arbitrary)','P(comparison diameter ≥ microbial width)',ser,False)
+ write('pore_microbe_proof_of_concept_lithology_source_summary.csv',list(summary[0]),summary)
  for legacy in ('native_size_nominal_fit_sample_level.csv','native_size_nominal_fit_lithology_method_summary.csv','plots/native_size_nominal_fit_midpoint.svg'):
   (OUT/legacy).unlink(missing_ok=True)
  (OUT/'analysis_manifest.json').write_text(json.dumps({'microbial_population':'4452 strict LPSN-supported cultured species','analysis':'Comparison-diameter overlap at k=1, separately by geometry/method/weighting. Radius sources use an explicit 2 × radius analytical field; source diameters and MIP entry/throat-equivalent dimensions are retained. Native-size plots remain separate. Existing C(k) remains a separate constriction-specific analysis.','display_binning':'80 fixed log10 bins from 0.001 to 100000 µm; statistics use individual processed source values.'},indent=2)+'\n')

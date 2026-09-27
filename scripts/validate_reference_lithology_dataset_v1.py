@@ -37,5 +37,7 @@ def main():
  assert len(attrs)>10000
  assert not (ANALYSIS/'native_size_nominal_fit_sample_level.csv').exists()
  assert not (ANALYSIS/'native_size_nominal_fit_lithology_method_summary.csv').exists()
+ assert (ANALYSIS/'pore_microbe_proof_of_concept_lithology_source_summary.csv').is_file()
+ assert (ANALYSIS/'plots/pore_microbe_comparison_ecdfs.svg').is_file()
  print(f'OK: {len(registry)} registry rows; {len(values)} native geometry rows; {len(conn)} connectivity metrics; {len(attrs)} source attributes; {len(edges)} edges; {len(overlap)} comparison-diameter overlap rows')
 if __name__=='__main__':main()
