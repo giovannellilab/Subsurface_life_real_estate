@@ -90,6 +90,13 @@ def microbial_guides(axis: plt.Axes, widths: np.ndarray) -> None:
     axis.axvline(median, color="#222222", lw=1.4, ls="--", zorder=1)
 
 
+def save_svg(fig: plt.Figure, name: str) -> None:
+    """Save a stable, whitespace-clean SVG for the public report."""
+    path = OUT / name
+    fig.savefig(path, format="svg")
+    path.write_text("\n".join(line.rstrip() for line in path.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
+
+
 def plot_size_distributions(widths: np.ndarray, groups: dict) -> None:
     fig, axes = plt.subplots(1, 2, figsize=(13.5, 6.1), sharex=True)
     micro_hist = np.histogram(widths, bins=LOG_BINS, weights=np.ones_like(widths) / len(widths))[0]
@@ -114,7 +121,7 @@ def plot_size_distributions(widths: np.ndarray, groups: dict) -> None:
     fig.suptitle("Pore × microbe size distributions: source weighting retained", x=0.06, ha="left", fontsize=15, fontweight="bold")
     fig.text(0.06, 0.01, "Grey band = cultured midpoint-width 5th–95th percentile; dashed line = median. Geological lines are not pooled or cross-method ranked.", fontsize=8)
     fig.tight_layout(rect=(0, 0.04, 1, 0.94))
-    fig.savefig(OUT / "pore_microbe_size_distributions.svg", format="svg")
+    save_svg(fig, "pore_microbe_size_distributions.svg")
     plt.close(fig)
 
 
@@ -144,7 +151,7 @@ def plot_compatibility_landscape(widths: np.ndarray, groups: dict) -> None:
     fig.suptitle("Compatibility landscape: measured size larger than microbial width", x=0.06, ha="left", fontsize=15, fontweight="bold")
     fig.text(0.06, 0.01, "Lines are equal-sample medians; shaded envelopes show sample range. This is geometry only—not connectivity, accessibility, or habitability.", fontsize=8)
     fig.tight_layout(rect=(0, 0.04, 1, 0.94))
-    fig.savefig(OUT / "pore_microbe_compatibility_landscape.svg", format="svg")
+    save_svg(fig, "pore_microbe_compatibility_landscape.svg")
     plt.close(fig)
 
 
