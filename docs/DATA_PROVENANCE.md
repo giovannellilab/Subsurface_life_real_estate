@@ -107,3 +107,15 @@ BacDive taxonomy, morphology, and references remain unchanged. The default CLI
 requires this CSV; missing files fail instead of silently falling back to an
 unvalidated run. `--without-lpsn` is an explicit historical mode and requires a
 separate output directory if LPSN outputs already exist.
+
+## M3 source reconnaissance
+
+M3 began with a metadata-only source census on 2026-09-26. The catalogue and
+its methods/readiness labels are tracked at
+`data/catalogues/m3_pore_geometry_source_catalogue.csv`; the evidence and
+schema rationale are in `PORE_GEOMETRY_RESOURCE.md`; and the reconnaissance
+record is `provenance/m3_source_reconnaissance_2026-09-26.md`. The first
+controlled acquisition then added PANGAEA.898001 and Zenodo.1184144 v1; its
+file-level checksums, local-only raw paths, transformations, and QC notes are
+in `provenance/m3_first_ingestion_2026-09-26.md` and the derived run manifest.
+The raw artifacts remain gitignored and immutable.

@@ -9,6 +9,8 @@ ASSETS = {
     "width_ecdf.png": ROOT / "data/processed/census_2026-09-14/analysis/plots/width_ecdf.png",
     "species_width_ecdfs.png": ROOT / "data/processed/census_2026-09-14/scientific_qc_v1/plots/species_width_ecdfs.png",
     "dimension_density.png": ROOT / "data/processed/census_2026-09-14/analysis/plots/dimension_density.png",
+    "lipnice_mip_intrusion.svg": ROOT / "data/processed/m3_first_ingestion/analysis/plots/lipnice_mip_intrusion.svg",
+    "sandstone_pnm_radius_ecdf.svg": ROOT / "data/processed/m3_first_ingestion/analysis/plots/sandstone_pnm_radius_ecdf.svg",
 }
 
 def build(output: Path) -> None:

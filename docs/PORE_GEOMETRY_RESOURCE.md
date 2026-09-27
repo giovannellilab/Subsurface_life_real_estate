@@ -1,0 +1,155 @@
+# M3 pore-geometry resource
+
+Status: **first controlled ingestion complete; scientific review pending**
+(2026-09-26). This remains a bounded source census, not an exhaustive review.
+The first pass ingested two compact tabular records (Lipnice MIP and
+Fontainebleau/Berea CT/PNM), without publishing their raw files or coupling
+them to microbial data. See the [first-ingestion provenance record](provenance/m3_first_ingestion_2026-09-26.md).
+
+The tracked catalogue is
+[`data/catalogues/m3_pore_geometry_source_catalogue.csv`](../data/catalogues/m3_pore_geometry_source_catalogue.csv).
+Run `python3 scripts/validate_pore_catalogue.py` to validate its structural
+invariants without network access.
+
+## Scientific contract
+
+M3 represents matrix pores, pore throats/entry constrictions, grain-boundary
+pores, and microcracks. It deliberately does **not** set a pore/fracture size
+cutoff: geometry and spatial context, rather than an arbitrary diameter,
+distinguish in-scope microcracks from large-scale fracture geometry in M4. A
+source may contain a macroscopic fracture; M3 retains only its matrix-adjacent
+pore-network or microcrack observations and documents that selection.
+
+`Pore size` is not a harmonized measurement. MIP reports a capillarity-modelled
+entry/throat-equivalent size under mercury intrusion conditions, not a direct
+pore-body diameter. CT and nano-CT describe only segmented voids above their
+resolution and depend on segmentation; pore-network definitions travel with the
+extraction algorithm. Adsorption, NMR, FIB-SEM, TEM, and microscopy have
+different contrast mechanisms, assumptions, and size windows. Values from
+different methods must not be pooled merely because they share a unit.
+
+## Source census and coverage
+
+Counts are candidate records, not independent specimens; multi-lithology
+records contribute to each listed class.
+
+| Lithological class | Candidates | Ready quantitative starting point | Principal representation | Immediate gap |
+| --- | ---: | --- | --- | --- |
+| Siliciclastic sandstone | 3 | Fontainebleau/Berea CSV pore networks | bodies and throats; micro-CT + PNM | benchmark and state diversity |
+| Mudstone | 2 | West Trenton USGS MIP | throat-equivalent distributions | paired 3-D body/throat data |
+| Carbonate | 5 | Estaillades micro-/nano-CT | multiscale matrix pores | processed numeric networks and natural-state diversity |
+| Volcanic | 5 | basalt CT/PNM CSV | bodies, throats, connected paths | fresh natural matrix series at fine resolution |
+| Plutonic crystalline | 3 | Lipnice granite PANGAEA | throats; MIP | paired 3-D matrix pores and microcracks |
+| Ultramafic/serpentinized | 1 | serpentinite TEM/FIB-SEM publication | nanoscale matrix/grain-boundary pores | interoperable tables and cell-scale bridge |
+| Metamorphic | 2 | Carrara micro-XRCT candidate | microcracks | natural, non-artificial matrix pore/throat datasets |
+| Unconsolidated sediment | 1 | conceptual/data antecedent only | sediment pore-size framework | selected primary repository distributions |
+
+Methods represented are MIP (granite, mudstone), micro-CT and extracted
+networks (sandstone, basalt, carbonate), paired micro-/nano-CT (Estaillades),
+FIB-SEM/TEM (serpentinite), and micro-XRCT (marble). The catalogue labels seven
+records `A` (public quantitative artifacts ready for controlled acquisition),
+seven `B` (valuable but needing a small eligibility/metadata check), and eight
+`C` (context, discovery, or deliberately deferred). `A` does not mean
+scientifically comparable.
+
+## Minimal M3 data model
+
+The model is deliberately long-form and method-aware. A `sample` identifies a
+physical specimen; a `measurement` is one method/run/derived observation on it.
+A numeric distribution is linked as a tabular artifact or long-form bins, never
+as a universal `pore_size` column.
+
+### `samples.csv`
+
+| Field | Meaning |
+| --- | --- |
+| `sample_id` | Stable project identifier; never a source identifier alone. |
+| `source_id`, `source_sample_id` | Link to catalogue/provenance and original specimen label. |
+| `lithology_class`, `lithology_description_raw` | Controlled broad class plus preserved source description. |
+| `sample_state` | Fresh/altered/weathered/reacted/deformed/serpentinized etc.; never a new lithology. |
+| `collection_context` | Formation, location, depth, core/hand specimen context where supplied. |
+| `material_scale_context` | Matrix, matrix adjacent to fracture, vein, or mixed; supports the M3/M4 boundary. |
+
+### `measurements.csv`
+
+| Field | Meaning |
+| --- | --- |
+| `measurement_id`, `sample_id` | Stable measurement key and sample join. |
+| `method`, `method_variant_raw` | Controlled method family and unmodified source label. |
+| `geometry_class` | `pore_body`, `pore_throat`, `matrix_pore`, `grain_boundary_pore`, `microcrack`, or `mixed_or_unresolved`; separate rows for multiple classes. |
+| `quantity_name_raw`, `quantity_role` | Source quantity and role: `body`, `throat_or_entry_equivalent`, `void_fraction`, `connectivity`, `microcrack_geometry`, or `unresolved`. |
+| `size_definition_raw` | Inscribed sphere, equivalent radius, local thickness, MIP entry equivalent, etc.; never inferred. |
+| `value_unit`, `distribution_reference` | Unit and source table/file/column/bin or image-derived output. |
+| `resolution_or_detection_limit_raw` | Voxel/pixel size, stated window, or limit; null if unreported. |
+| `segmentation_or_model_raw` | Thresholding, network extractor, Washburn assumptions, etc., when supplied. |
+| `connectivity_definition_raw` | Connected-porosity rule, coordination, percolation direction, or null. |
+| `provenance_locator` | DOI/version plus file, sheet, table, figure, row/column, or processing output. |
+| `qc_flags`, `comparability_group` | Explicit cautions and a grouping that prevents unreviewed pooling. |
+
+`measurement_id + geometry_class + quantity_role` is unique within one
+processing snapshot. `measurement_distribution.csv` holds linked bins with
+bin bounds, values, value type (count/frequency/cumulative volume/etc.), and
+original units. Images and raw files remain outside version control.
+
+The first network-table ingestion also demonstrated a useful source-specific
+object table: `network_objects.csv` retains one PNM object per row, with
+`EqRadius`, area, volume, channel length, and coordination in their original
+units and dedicated normalized columns. This is not a universal pore-size
+table: body and throat records remain separate, and `EqRadius` remains radius.
+
+## First ingestion snapshot
+
+Two source records (24 samples/cases and 27 method/geometry measurements) are
+now available under `data/processed/m3_first_ingestion/`. Lipnice contributes
+1,365 non-empty incremental-intrusion bins across 21 granite specimens. The
+Fontainebleau/Berea record contributes 46,467 pore-body and 173,174
+pore-throat objects across three PNM cases. Its CSVs do not state CT resolution
+or extraction settings, which are retained as missing—not inferred.
+
+The initial coverage is therefore plutonic crystalline × MIP and siliciclastic
+sandstone × micro-CT/PNM. It does not yet cover mudstone, carbonate, volcanic,
+ultramafic, or metamorphic material with a processed quantitative artifact.
+The MIP plot shows incremental intruded porosity by MIP entry-equivalent bin;
+the sandstone plot shows source-supplied equivalent radii as separate body and
+throat ECDFs. Neither is a cross-method comparison.
+
+## Recommended first-ingestion set
+
+First acquire metadata, licenses, exact files, checksums, and a small
+representative quantitative artifact—not bulk imagery. The balanced first set:
+
+1. **Lipnice granite MIP throat distributions** (M3-001): open, tabular
+   crystalline constriction endmember.
+2. **Fontainebleau/Berea PNM CSVs** (M3-002): paired pore-body and throat
+   tables for a transparent sandstone benchmark.
+3. **West Trenton mudstone USGS MIP** (M3-003): fine-grained sedimentary
+   throat-equivalent endmember.
+4. **Estaillades limestone micro-/nano-CT** (M3-004): carbonate multiscale
+   architecture, separated by resolution.
+5. **Basalt CO2-reaction CT/PNM CSVs** (M3-005): volcanic connectivity and
+   state contrast; retain only M3-scale quantities.
+6. **Serpentinite YODA publication** (M3-006): ultramafic nanoscale porosity;
+   inventory derived tables/metadata before images.
+7. **Carrara marble micro-XRCT** (M3-007): labelled metamorphic microcrack
+   stress-test, gated on metadata and artificial thermal state.
+8. **Microporous-cement natural-rock networks** (M3-009): carbonates and
+   cemented sedimentary architecture, after duplicate-sample checking.
+
+## Major gaps and review decisions
+
+- Natural metamorphic matrix pores and throats are sparse; Carrara is an
+  artificial-crack method case, not a natural prior.
+- Crystalline rocks have throat and microcrack evidence but few paired,
+  machine-readable 3-D body–throat distributions.
+- Ultramafic evidence emphasizes nanoporosity; molecular transport does not
+  establish microbial transit.
+- Weathering, reaction, stress, depth, saturation, and alteration remain sample
+  state/context, not lithology.
+- A formal comparability matrix is needed before any cross-source quantile plot
+  or microbial-accessibility calculation.
+- For microcracks, aperture versus local minimum aperture versus graph
+  constriction remains an M3/M4 interface decision. Large-scale fracture extent
+  and connectivity remain M4.
+
+M3 stops at an evidence and schema resource: it makes no inferred cell fit,
+accessible porosity, or microbial × pore calculation.

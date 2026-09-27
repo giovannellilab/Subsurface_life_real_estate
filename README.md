@@ -23,6 +23,15 @@ LPSN GSS CSV provides offline nomenclature and type-deposit evidence. This is
 source coverage, not a representative distribution of all prokaryotes; see the
 [full census report](docs/FULL_CENSUS_REPORT.md).
 
+Milestone 3: a targeted pore-geometry reconnaissance and first controlled
+ingestion are complete pending scientific review. The census identifies 22
+candidate sources across siliciclastic, mudstone, carbonate, volcanic, plutonic
+crystalline, ultramafic/serpentinized, and metamorphic space. The first pass
+retains method-specific Lipnice MIP and Fontainebleau/Berea CT/PNM derived
+tables locally; it does not publish raw geological files or pool distributions.
+Seven additional source records remain acquisition-ready candidates. See the
+[M3 pore-geometry resource](docs/PORE_GEOMETRY_RESOURCE.md).
+
 ## License
 
 Software is released under the Apache License 2.0.
@@ -111,6 +120,10 @@ BacDive-only processing remains available through `--without-lpsn`, with a separ
   coverage discrepancies, and references.
 - [Data dictionary](docs/DATA_DICTIONARY.md): schema, conversions, and QC flags.
 - [Data provenance](docs/DATA_PROVENANCE.md): immutable inputs and reproducible runs.
+- [M3 pore-geometry resource](docs/PORE_GEOMETRY_RESOURCE.md): source census,
+  method-aware schema, initial coverage, gaps, and first ingestion.
+- [M3 first-ingestion report](docs/M3_FIRST_INGESTION_REPORT.md): source-level
+  descriptive results, schema outcome, deferred artifacts, and review limits.
 - [Full census report](docs/FULL_CENSUS_REPORT.md): population, QC, coverage,
   distributions, and review limits.
 - [Scientific QC v1 report](docs/SCIENTIFIC_QC_V1_REPORT.md): immutable

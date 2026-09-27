@@ -251,3 +251,28 @@ minimum-width distribution with the three species-level variants.
 source-coverage diagnostics. The publication-year field is explicitly low
 confidence: it is the first four-digit year in the matched LPSN author string,
 not a verified species-description year.
+
+## M3 pore-geometry resource (reconnaissance schema)
+
+M3 uses a separate schema version from the microbial observations above. The
+tracked source catalogue is a metadata-only census, not an observation table:
+`data/catalogues/m3_pore_geometry_source_catalogue.csv`. Its key fields are
+`source_id`, lithology and sample-state fields, `geometry_class`, `method`,
+resolution/window, quantitative-artifact description, access/terms, readiness,
+and a scope note. `geometry_class` is restricted to `pore_body`,
+`pore_throat`, `matrix_pore`, `grain_boundary_pore`, `microcrack`, and
+`mixed_or_unresolved`; pipe-separated values describe source coverage only and
+must become separate measurement rows after ingestion.
+
+The implemented M3 tables are `samples.csv`, `measurements.csv`, and
+`measurement_distribution.csv`, defined in `docs/PORE_GEOMETRY_RESOURCE.md`.
+The first PNM source also uses `network_objects.csv`: one source-network object
+per row with geometry class, source-supplied `EqRadius`, area, volume, channel
+length, and coordination where present. Radius is not transformed to diameter,
+and body and throat rows are never mixed.
+There is intentionally no universal `pore_size` field. Preserve the source
+quantity, its method/definition, resolution or detection limit, segmentation or
+model, and a locator to the original file/table/column/bin. `sample_state` is a
+distinct field, so fresh, altered, weathered, reacted, deformed, and
+serpentinized material cannot become separate lithology classes. No pore value
+is normalized, pooled, or coupled to a cell dimension during M3.
