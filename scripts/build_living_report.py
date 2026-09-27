@@ -11,6 +11,13 @@ ASSETS = {
     "dimension_density.png": ROOT / "data/processed/census_2026-09-14/analysis/plots/dimension_density.png",
     "lipnice_mip_intrusion.svg": ROOT / "data/processed/m3_first_ingestion/analysis/plots/lipnice_mip_intrusion.svg",
     "sandstone_pnm_radius_ecdf.svg": ROOT / "data/processed/m3_first_ingestion/analysis/plots/sandstone_pnm_radius_ecdf.svg",
+    "m3_native_constriction_distributions.svg": ROOT / "data/processed/m3_transit_comparison_v1/plots/native_constriction_distributions.svg",
+    "m3_microbial_width_ecdfs.svg": ROOT / "data/processed/m3_transit_comparison_v1/plots/microbial_width_ecdfs.svg",
+    "m3_compatibility_clearance_curves.svg": ROOT / "data/processed/m3_transit_comparison_v1/plots/compatibility_clearance_curves.svg",
+    "reference_native_size_distributions.svg": ROOT / "data/processed/reference_lithology_dataset_v1/analysis/plots/reference_native_size_distributions.svg",
+    "reference_comparison_diameter_distributions.svg": ROOT / "data/processed/reference_lithology_dataset_v1/analysis/plots/comparison_diameter_distributions.svg",
+    "reference_microbial_width_ecdfs.svg": ROOT / "data/processed/reference_lithology_dataset_v1/analysis/plots/microbial_width_ecdfs_reference_v1.svg",
+    "reference_comparison_diameter_overlap.svg": ROOT / "data/processed/reference_lithology_dataset_v1/analysis/plots/comparison_diameter_overlap_midpoint.svg",
 }
 
 def build(output: Path) -> None:

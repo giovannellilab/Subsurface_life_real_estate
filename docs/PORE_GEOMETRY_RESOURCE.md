@@ -6,6 +6,47 @@ The first pass ingested two compact tabular records (Lipnice MIP and
 Fontainebleau/Berea CT/PNM), without publishing their raw files or coupling
 them to microbial data. See the [first-ingestion provenance record](provenance/m3_first_ingestion_2026-09-26.md).
 
+The finite [Reference Lithology Panel v1](M3_REFERENCE_LITHOLOGY_PANEL_V1.md)
+now records eight lithological endmembers and their explicit inclusion or
+exclusion decisions. Only granite MIP entry/throat-equivalent bins and
+sandstone PNM throat records currently support the first local geometric-fit
+calculation. The calculation remains sample-level, preserves method-specific
+weighting, and is not a universal pore-size distribution or accessibility model.
+
+## Reference Lithology Dataset v1
+
+The broader, deliberately method-labelled
+[Reference Lithology Dataset v1](M3_REFERENCE_LITHOLOGY_DATASET_V1.md) extends
+the two initial sources with a South China Sea carbonate pore network, an
+unreacted basalt pore-body table, and UKGEOS Wilmslow Sandstone pore networks
+with connected-porosity and permeability summaries. It holds pore bodies,
+throats/entry equivalents, and connectivity metrics as distinct source-specific
+quantities. Its microbial comparison uses a separate analytical comparison
+diameter: `2 × radius` only where a source explicitly reports radius, retained
+source diameter/entry-equivalent dimensions where supplied, and no conversion
+for unresolved semantics. Pore-body accommodation and throat/entry nominal
+transit remain separate; the constriction-specific `C(k)` pilot remains a
+separate, narrower analysis.
+
+### Targeted lithology-gap acquisition and ingestion
+
+A small 2026-09-27 acquisition pass secured local-only, gitignored quantitative
+artifacts for three remaining coverage gaps: Harvard marine-shale pore-size and
+connectivity-workflow tables (CC0), an F42A laboratory-packed quartz-sand
+micro-CT/PNM archive (CC-BY-4.0), and natural Atlantis Massif
+serpentinised-ultramafic/gabbro bulk-porosity plus pressure-dependent
+permeability/resistivity tables (CC-BY-3.0). They are now ingested into the
+local Reference Lithology Dataset v1 with source-specific limits. Harvard
+`PORE-SIZE` remains an uncalibrated CTSTA connected-pore-cluster class rather
+than a body/throat/radius/diameter field; only the companion W23 curve with an
+explicit `R/nm` label appears in the native-size display. F42A retains separate
+network pore and throat tables, coordination, and topology for its 9.996 µm
+resolved/extracted window. Atlantis Massif remains connectivity/transport-only,
+never a size distribution. The Chogani & Plümper YODA serpentinite and Utrecht/
+EPOS gabbro–serpentinite–greenschist microscopy data remain source-endpoint
+blocked; no figure values were digitised. See
+[the targeted acquisition record](provenance/m3_gap_acquisition_2026-09-27.md).
+
 The tracked catalogue is
 [`data/catalogues/m3_pore_geometry_source_catalogue.csv`](../data/catalogues/m3_pore_geometry_source_catalogue.csv).
 Run `python3 scripts/validate_pore_catalogue.py` to validate its structural
@@ -103,8 +144,12 @@ Two source records (24 samples/cases and 27 method/geometry measurements) are
 now available under `data/processed/m3_first_ingestion/`. Lipnice contributes
 1,365 non-empty incremental-intrusion bins across 21 granite specimens. The
 Fontainebleau/Berea record contributes 46,467 pore-body and 173,174
-pore-throat objects across three PNM cases. Its CSVs do not state CT resolution
-or extraction settings, which are retained as missing—not inferred.
+pore-throat objects across three PNM cases. The [associated source article](https://doi.org/10.3389/feart.2018.00058)
+documents 0.74 µm isotropic voxels, a 1024-cubed image reduced to a
+500-cubed-voxel ROI, filtering, manual threshold segmentation, and a PerGeos
+hybrid skeleton-based PNM. These provenance fields are now recorded in the
+processed measurements; their network throats are resolved/segmented objects,
+not a complete whole-rock throat population.
 
 The initial coverage is therefore plutonic crystalline × MIP and siliciclastic
 sandstone × micro-CT/PNM. It does not yet cover mudstone, carbonate, volcanic,

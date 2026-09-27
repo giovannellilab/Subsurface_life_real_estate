@@ -123,15 +123,23 @@ def field(row: dict, name: str) -> str:
 
 def zenodo_rows(samples: list[dict], measurements: list[dict], objects: list[dict]) -> None:
     directory = RAW / "zenodo_1184144"
-    cases = {"Case1FB": ("Fontainebleau sandstone", "case label only; state not supplied in file"),
-             "Case2B": ("Berea sandstone", "case label only; state not supplied in file"),
-             "Case3B": ("Berea sandstone", "case label only; state not supplied in file")}
-    for case, (rock, state) in cases.items():
+    # Case identity and image-processing metadata are supplied by Thomson et
+    # al. (2018), the record's associated article, rather than by the object
+    # CSV headers themselves.  Case3 represents the water-filled subset of an
+    # oil/water experiment and is deliberately not a natural-state reference.
+    cases = {
+        "Case1FB": ("Fontainebleau sandstone", "dry", "dry Fontainebleau; connected segmented network"),
+        "Case2B": ("Berea sandstone", "dry", "dry Berea; connected segmented network"),
+        "Case3B": ("Berea sandstone", "oil/water saturated", "water-filled pore-space subset in oil/water-saturated Berea"),
+    }
+    window = "0.74 µm isotropic voxel; 1024³ original image; 500³-voxel ROI; resolved, segmented connected network only"
+    extraction = "SRXTM; Interactive/White Top Hat and Non-Local Means filtering; manual grayscale threshold; PerGeos hybrid skeleton-based PNM"
+    for case, (rock, state, context) in cases.items():
         sample_id = f"M3-002:{case}"
         samples.append({
             "sample_id": sample_id, "source_id": "M3-002", "source_sample_id": case,
             "lithology_class": "sedimentary_siliciclastic", "lithology_description_raw": rock,
-            "sample_state": state, "collection_context": "record-level PNM case; exact specimen metadata not present in CSV",
+            "sample_state": state, "collection_context": context,
             "material_scale_context": "matrix_pore_network",
         })
         for suffix, geometry in (("Pores", "pore_body"), ("Throats", "pore_throat")):
@@ -145,11 +153,11 @@ def zenodo_rows(samples: list[dict], measurements: list[dict], objects: list[dic
                 "quantity_role": "body" if geometry == "pore_body" else "throat_or_entry_equivalent",
                 "size_definition_raw": "EqRadius as named in source CSV; no conversion to diameter",
                 "value_unit": "µm", "distribution_reference": filename,
-                "resolution_or_detection_limit_raw": "not supplied in CSV; consult record metadata before cross-source use",
-                "segmentation_or_model_raw": "network-extraction settings not supplied in CSV",
-                "connectivity_definition_raw": "Coordination Number" if geometry == "pore_body" else "pore-pair edge table",
+                "resolution_or_detection_limit_raw": window,
+                "segmentation_or_model_raw": extraction,
+                "connectivity_definition_raw": ("connected segmented pore phase; Coordination Number" if geometry == "pore_body" else "connected segmented pore phase; pore-pair edge table"),
                 "provenance_locator": f"Zenodo 1184144 v1; {filename}",
-                "qc_flags": "radius_not_diameter;ct_pnm_window_not_reported_in_csv",
+                "qc_flags": "radius_not_diameter;resolution_conditioned_resolved_network;manual_threshold_segmentation" + (";case3_water_phase_only" if case == "Case3B" else ""),
                 "comparability_group": "micro_CT_PNM_equivalent_radius",
             })
             header_has_replacement = "�" in path.read_text(encoding="utf-8", errors="replace").splitlines()[0]

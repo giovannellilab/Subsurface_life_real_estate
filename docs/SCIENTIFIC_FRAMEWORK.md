@@ -103,6 +103,39 @@ For fractures, aperture distributions, local constrictions, connectivity,
 roughness, coatings, fillings, fluid volume, wall area, and surface colonization
 must be treated separately from matrix pores.
 
+## First local geometric-fit comparison
+
+Reference Lithology Panel v1 is a finite, source-qualified panel rather than a
+lithology prior. Its first calculation is `C(k) = P(D_constriction >= k × W)`:
+local geometric compatibility between a source-defined constriction dimension
+and a cultured species width, for a clearance factor `k`. It is calculated
+separately for canonical width minimum, midpoint, and maximum among 4,452
+strict-LPSN-supported cultured species. It is not an accessibility, habitability,
+colonizable-porosity, or connected-habitat estimate.
+
+Only two panel endmembers currently qualify: Lipnice granite MIP bins, weighted
+by incremental intruded porosity, and dry Fontainebleau/Berea network throats,
+weighted by throat object count. The latter are 0.74-µm-voxel, manually
+segmented, hybrid-PNM results from a 500-cubed-voxel ROI; their `C(k)` values
+are conditional on resolved, segmented connected throats, not the complete
+whole-rock throat population. MIP uses a conservative lower bin edge, with a
+separate geometric-midpoint sensitivity; sandstone retains EqRadius and derives
+`2 × EqRadius` only as a separately labelled comparison diameter. Their values
+are not directly rankable because observational mechanisms, size definitions,
+windows, and weighting bases differ. Other endmembers remain excluded pending
+defensible constriction distributions.
+
+## Representative native-size comparison
+
+Reference Lithology Dataset v1 complements, but does not replace, the narrow
+constriction comparison. It plots and summarizes source-native pore-body,
+throat/entry-equivalent and available connectivity records across several
+lithologies. Its descriptive overlap `P(source-native reported size >= W)` is
+computed separately for microbial width minimum, midpoint and maximum, while
+retaining radius/diameter convention, geometry class, method, weighting and
+sample. It is not a transit claim when the source quantity is a pore-body
+radius, an MIP entry equivalent, or another non-harmonised reported size.
+
 ## Working conceptual quantities
 
 `R_occupancy = d_pore / d_cell`, `R_transit = d_throat / d_cell`, and

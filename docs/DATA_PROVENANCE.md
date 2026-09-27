@@ -119,3 +119,22 @@ controlled acquisition then added PANGAEA.898001 and Zenodo.1184144 v1; its
 file-level checksums, local-only raw paths, transformations, and QC notes are
 in `provenance/m3_first_ingestion_2026-09-26.md` and the derived run manifest.
 The raw artifacts remain gitignored and immutable.
+
+Reference Lithology Dataset v1 subsequently selected three additional public,
+quantitative artifacts: South China Sea carbonate PNM statistics, an unreacted
+basalt pore-size table, and UKGEOS Wilmslow Sandstone PNM tables. Their local
+raw checksums, licenses, source URLs, and source-specific extraction decisions
+are recorded in `provenance/m3_reference_lithology_dataset_v1_2026-09-27.md`.
+The generated dataset tables remain local-only under
+`data/processed/reference_lithology_dataset_v1/`; they retain method and
+geometry semantics instead of creating a universal pore-size variable.
+
+A bounded lithology-gap acquisition on 2026-09-27 retained five Harvard primary
+artifacts plus three CC0 companion analysis artifacts, one CC-BY F42A
+quartz-sand-pack network archive, and one CC-BY PANGAEA Atlantis Massif
+gabbro/serpentinised-ultramafic bundle. The source-preserving ingestion retains
+Harvard's uncalibrated CTSTA classes separately from its W23 labelled modelled
+radius curve, F42A pore/throat network topology and metrics, and PANGAEA bulk
+porosity/pressure-dependent transport as connectivity-only. Exact raw paths,
+checksums, licenses, direct retrieval locations, transformations, and blocked
+Utrecht/YODA routes are in `provenance/m3_gap_acquisition_2026-09-27.md`.

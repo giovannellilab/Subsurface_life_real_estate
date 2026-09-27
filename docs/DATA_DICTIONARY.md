@@ -268,11 +268,23 @@ The implemented M3 tables are `samples.csv`, `measurements.csv`, and
 `measurement_distribution.csv`, defined in `docs/PORE_GEOMETRY_RESOURCE.md`.
 The first PNM source also uses `network_objects.csv`: one source-network object
 per row with geometry class, source-supplied `EqRadius`, area, volume, channel
-length, and coordination where present. Radius is not transformed to diameter,
-and body and throat rows are never mixed.
+length, and coordination where present. Radius is not transformed in those
+native records, and body and throat rows are never mixed.
+
+Reference Lithology Dataset v1 uses local-only `geometry_values.csv`, whose
+native fields remain source-preserving. Its separate analytical fields
+`comparison_dimension`, `comparison_diameter_um`, `comparison_derivation`, and
+`comparison_role` are populated only for an explicit source radius (`2 ×
+radius`), a source diameter retained unchanged, or a documented MIP
+entry/throat-equivalent dimension. Roles are `pore_body_accommodation`,
+`throat_entry_nominal_transit`, and
+`modelled_matrix_pore_cluster_accommodation`; unresolved size semantics and
+connectivity-only records remain blank. These fields are for microbial-size
+comparison only and do not create a universal pore-size variable.
 There is intentionally no universal `pore_size` field. Preserve the source
 quantity, its method/definition, resolution or detection limit, segmentation or
 model, and a locator to the original file/table/column/bin. `sample_state` is a
 distinct field, so fresh, altered, weathered, reacted, deformed, and
-serpentinized material cannot become separate lithology classes. No pore value
-is normalized, pooled, or coupled to a cell dimension during M3.
+serpentinized material cannot become separate lithology classes. Native pore
+values are not normalized or pooled; the explicitly limited comparison-diameter
+overlay is the sole analytical coupling to microbial width during M3.
