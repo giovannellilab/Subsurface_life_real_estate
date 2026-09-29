@@ -138,3 +138,40 @@ radius curve, F42A pore/throat network topology and metrics, and PANGAEA bulk
 porosity/pressure-dependent transport as connectivity-only. Exact raw paths,
 checksums, licenses, direct retrieval locations, transformations, and blocked
 Utrecht/YODA routes are in `provenance/m3_gap_acquisition_2026-09-27.md`.
+
+The 2026-09-28 geological-resource audit re-read the source papers and
+deposited metadata, separated source/site/specimen/measurement/object counts,
+classified fracture and alteration contexts, restored method-specific porosity
+and resolution information, and inspected the Park & Santamarina (2020)
+supplementary benchmark. Its source-paper inventory, local audit-file checksums,
+access limits, and unresolved source discrepancies are recorded in
+`provenance/m3_geological_audit_2026-09-28.md`. Audit row tables and derived
+figures remain local-only under
+`data/processed/m3_geological_resource_audit_v1/`.
+
+The Literature Lithology Atlas v1 then added a bounded external-reality layer:
+40 independent papers, datasets, expedition reports and reviews, with five
+useful records for each of nine high-level lithologies. Its tracked source,
+observation, location, coverage, compact-envelope, void-class-envelope,
+porosity-summary and M3-audit tables are under
+`data/catalogues/literature_lithology_*_v1.csv` and
+`data/catalogues/m3_literature_envelope_audit_v1.csv`. The atlas does not copy
+row-level third-party data and does not replace the detailed M3 distributions.
+Review/benchmark rows are excluded from the conservative specimen minimum;
+map coordinates retain exact/approximate/regional precision labels. Search,
+extraction, counting and coordinate rules are recorded in
+`provenance/m3_literature_lithology_atlas_2026-09-28.md`. Five generated SVGs
+remain local-only under
+`data/processed/m3_literature_lithology_atlas_v1/` pending scientific review.
+
+The 2026-09-29 quantitative-measurement pass re-used that bounded source set;
+it did not add a literature source or acquire any image volume. Its tracked
+long-form table is `data/catalogues/literature_quantitative_measurements_v1.csv`
+with corresponding lithology coverage in
+`data/catalogues/literature_quantitative_coverage_v1.csv`. The Park &
+Santamarina S2 supplement was transcribed as labelled fitted-distribution
+parameters, not raw pore observations. A small temporary retrieval of the
+already selected USGS Professional Paper 1123-B added its published Kilauea
+table; the document itself remains outside the repository. Extraction scope,
+source locators, counting rules and validation are recorded in
+`docs/M3_LITERATURE_QUANTITATIVE_MEASUREMENTS_V1.md`.

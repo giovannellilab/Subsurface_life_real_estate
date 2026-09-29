@@ -1,0 +1,35 @@
+location_id,location_name,source_ids,lithology,latitude,longitude,location_precision,material_setting,coordinate_provenance
+LOC-001,Alameda County beach,LIT-003,unconsolidated sand/sediment,37.85111,-122.3,exact,natural,"reported 37 51 04 N, 122 18 00 W"
+LOC-002,Blake Ridge ODP Leg 164,LIT-004,unconsolidated sand/sediment,31.7,-75.5,regional centroid,natural,regional expedition setting; not a hole coordinate
+LOC-003,Sellafield BH13B,LIT-007,sandstone,54.38815,-3.47205,exact borehole,natural,published British National Grid converted at map scale
+LOC-004,"Longdong, Ordos Basin",LIT-008,sandstone,36.0,107.5,regional centroid,natural,Qingyang-Zhenjing-Huachi study area
+LOC-005,SE Ordos Basin,LIT-009,sandstone,36.6,109.4,regional centroid,natural,Yanchang Formation study region
+LOC-006,West Trenton NAWC,LIT-011,mudstone/shale,40.26,-74.81,approximate locality,natural,former Naval Air Warfare Center; exact boreholes not geocoded here
+LOC-007,Barnett Shale region,LIT-012,mudstone/shale,32.7,-97.3,regional centroid,natural,one of several formations in Loucks et al.
+LOC-008,Woodford Shale region,LIT-012|LIT-001,mudstone/shale,35.0,-97.0,regional centroid,natural,regional benchmark marker
+LOC-009,Mancos Shale region,LIT-001|LIT-013,mudstone/shale,37.2,-108.5,regional centroid,natural,regional benchmark marker
+LOC-010,Bakken region,LIT-001|LIT-013,mudstone/shale,48.0,-103.0,regional centroid,natural,regional benchmark marker
+LOC-011,Nansha Islands,LIT-014,carbonate,10.0,114.0,regional centroid,natural,South China Sea reef-carbonate study region
+LOC-012,Austin Chalk region,LIT-001,carbonate,30.2,-97.5,regional centroid,natural,Park S2 source formation
+LOC-013,Mount Gambier,LIT-001,carbonate,-37.83,140.78,approximate locality,natural,Park S2 carbonate source
+LOC-014,Port Fairy quarry,LIT-018,basalt/volcanic rock,-38.38,142.24,approximate locality,natural,Bambstone Bluestone quarry region
+LOC-015,Central Oregon basalt fields,LIT-019,basalt/volcanic rock,44.3,-121.3,regional centroid,natural,scoria/lava sample region
+LOC-016,Kilauea Iki,LIT-020,basalt/volcanic rock,19.42,-155.28,exact volcanic setting,natural,Kilauea Iki drill core
+LOC-017,Reykjanes Peninsula,LIT-021,basalt/volcanic rock,63.9,-22.5,regional centroid,natural,road-outcrop ISL26 block
+LOC-034,Mt Etna,LIT-022,basalt/volcanic rock,37.75,15.0,regional centroid,natural,volcanic-edifice centroid; not a specimen coordinate
+LOC-018,Lipnice MEL-5,LIT-023,granite/granitoid,49.62072,15.41032,exact borehole,natural,published borehole coordinate
+LOC-019,Westerly granite,LIT-024|LIT-025,granite/granitoid,41.38,-71.83,approximate locality,natural,"reference-stone locality, not a quarry coordinate"
+LOC-020,Northern Portugal granites,LIT-026,granite/granitoid,41.3,-7.9,regional centroid,natural,Mondim/Pedras stone region
+LOC-021,Atlantis Massif,LIT-028|LIT-033,gabbro/mafic crystalline|serpentinite/ultramafic,30.14,-42.12,exact drilling region,natural,multiple IODP boreholes; one mixed mafic-ultramafic massif setting
+LOC-022,ODP Hole 735B,LIT-029|LIT-030|LIT-031,gabbro/mafic crystalline,-32.72,57.27,exact borehole,natural,Southwest Indian Ridge / Atlantis II Fracture Zone
+LOC-023,Hess Deep U1415,LIT-032,gabbro/mafic crystalline,2.25,-101.55,exact drilling region,natural,IODP Expedition 345
+LOC-024,Duluth Complex,LIT-033,serpentinite/ultramafic,47.5,-91.5,regional centroid,natural,olivine-rich outcrop setting
+LOC-025,ODP Site 1274,LIT-034,serpentinite/ultramafic,15.65,-46.68,exact drilling region,natural,31 km north of 15 20 N fracture zone
+LOC-026,Roragen ultramafic complex,LIT-034,serpentinite/ultramafic,62.6,11.9,approximate locality,natural,Norwegian onshore complex
+LOC-027,Mineoka Belt,LIT-035,serpentinite/ultramafic,35.1,140.1,regional centroid,natural,accretionary-prism serpentinite
+LOC-028,Parece Vela Basin,LIT-035,serpentinite/ultramafic,17.0,139.0,regional centroid,natural,dredged serpentinite setting
+LOC-029,Mariana forearc mud volcanoes,LIT-036,serpentinite/ultramafic,18.0,147.0,regional centroid,natural special state,three mud volcanoes; plotted once as a regional setting
+LOC-030,Rutland quartzite,LIT-024,metamorphic rock,43.61,-72.97,approximate locality,natural,reference-stone locality
+LOC-031,Songliao Basin LT wells,LIT-037,metamorphic rock,45.5,124.5,regional centroid,natural,central paleo-uplift belt
+LOC-032,Nathpa-Jhakri,LIT-038,metamorphic rock,31.56,78.0,approximate locality,natural,Himalayan hydroelectric project setting
+LOC-033,Carrara marble district,LIT-039,metamorphic rock,44.08,10.1,approximate locality,natural,quarry district; comparison marbles not separately mapped

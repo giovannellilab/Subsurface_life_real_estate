@@ -288,3 +288,71 @@ distinct field, so fresh, altered, weathered, reacted, deformed, and
 serpentinized material cannot become separate lithology classes. Native pore
 values are not normalized or pooled; the explicitly limited comparison-diameter
 overlay is the sole analytical coupling to microbial width during M3.
+
+## Literature Lithology Atlas v1
+
+The atlas is a tracked literature-metadata and quantitative-summary layer. It
+does not contain row-level third-party distributions.
+
+- `literature_lithology_atlas_sources_v1.csv` has one row per independent
+  publication/dataset/report, including identifier, URL, applicable classes,
+  evidence role and bounded atlas use.
+- `literature_lithology_atlas_observations_v1.csv` has one row per explicitly
+  defined sample group and geometry class. `physical_specimens` may be numeric
+  or a source-faithful text qualifier. `count_in_primary_specimen_minimum`
+  controls conservative coverage counting. Size fields are populated only with
+  a labelled `radius_diameter_or_definition`, weighting, method and exact
+  provenance locator.
+- `literature_lithology_atlas_locations_v1.csv` has one row per independent
+  natural setting, with exact/approximate/regional precision and coordinate
+  provenance. Pipe-separated lithologies denote one mixed setting, not
+  duplicate map points.
+- `literature_lithology_atlas_coverage_v1.csv` reports source, mapped-setting
+  and conservative primary-specimen counts; Park benchmark groups remain a
+  separate field.
+- `literature_lithology_reference_envelopes_v1.csv` stores broad,
+  state-stratified porosity and size sanity ranges with supporting source IDs.
+  Blank effective-porosity or size bounds mean not supportable under a
+  consistent definition, not zero.
+- `literature_lithology_void_envelopes_v1.csv` is the reporting-grade
+  companion: each row has exactly one lithology, state class and void class
+  (matrix/intergranular, body, throat/entry, grain-boundary, microcrack,
+  fracture, vug or vesicle) with a source-supported size domain. It does not
+  merge those classes into a lithology-wide distribution.
+- `literature_lithology_porosity_summary_v1.csv` records source, setting and
+  conservative specimen counts with state-stratified porosity bounds. Its
+  unweighted quartiles are intentionally blank unless four independent scalar
+  source groups support them; source intervals and non-equivalent porosity
+  definitions are never converted into pseudo-observations.
+- `m3_literature_envelope_audit_v1.csv` links each detailed M3 source to one or
+  more controlled audit flags and a recommended scientific treatment.
+
+Atlas envelopes are audit bands, not pooled data, confidence intervals or
+universal constants. Native M3 values and comparison dimensions remain
+unchanged.
+
+## Literature Quantitative Measurements v1
+
+`literature_quantitative_measurements_v1.csv` is a long-form, safe-derived
+literature table built from the bounded atlas. One row is one explicit source
+scalar, source-reported range, threshold, fitted-distribution parameter, or
+individual tabular measurement—not a pore and not necessarily a specimen. Its
+fields retain `provenance_layer`, source/sample-group/component identifiers,
+lithology/state/setting/location precision, `measurement_family`,
+`geometry_class`, `statistic_type`, scalar/range/auxiliary values and unit,
+native definition, method, weighting/definition, observation window,
+depth/stress context and exact source locator. Empty scalar fields mean a
+source-reported range or auxiliary statistic is used; they never mean zero.
+
+Park & Santamarina S2 rows are `fitted pore-scale distribution` with
+`geometry_class` deliberately unresolved. They retain named component and
+parent-group identifiers, and mean/standard-deviation parameters on separate
+rows. They must not be relabelled as pore bodies or throats. Detailed M3 source
+IDs are excluded to prevent duplicated primary observations.
+
+`literature_quantitative_coverage_v1.csv` reports source/context/settings and
+conservative natural/laboratory specimen counts separately from long-form
+measurement counts by lithology. It also separates pore/matrix/body,
+unresolved fitted-pore-scale, throat/entry, crack/fracture, porosity and
+connectivity/context rows. These are evidence-depth counts, not a pooled
+geological distribution.

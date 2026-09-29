@@ -22,6 +22,32 @@ below; working relationships and later analyses are not validated models.
 4. `gh-pages` is the generated and deployed public output, built from `site/`
    with the allowlisted report builder.
 
+## Frozen roadmap and Living Report preservation rule
+
+The high-level roadmap is intentionally stable.  Intermediate resources,
+audits, figures, and proof-of-concept calculations are sub-milestones; they do
+not renumber or replace the major milestones.
+
+| Milestone | Scope | Current state |
+| --- | --- | --- |
+| M1 | Cultured microbial geometry baseline | v1 complete |
+| M2 | Environmental and subsurface microbial geometry | Planned |
+| M3 | Matrix pore geometry | Reference Lithology Dataset v1, geological audit, Literature Lithology Atlas v1, and quantitative literature resource frozen as the current v1 state |
+| M4 | Fracture geometry | Planned |
+| M5 | Microbial × geological geometry coupling | Preliminary proof of concept exists; full coupling is not complete |
+| M6 | Biosphera integration | Planned |
+
+The Living Research Report is a cumulative chronological scientific record,
+not a continuously rewritten manuscript summary.  New datasets, analyses,
+figures, audits, and interpretations normally add to the record.  A future
+report rebuild must not silently remove a completed milestone, established
+resource section, scientifically useful figure, research-evolution entry, or
+reasoning that explains how an interpretation evolved.  When an earlier result
+is incomplete, misleading, or superseded, retain it where useful, label it as
+revised/restricted/superseded, explain the new evidence, and link the reader to
+the current interpretation.  A concise manuscript synthesis will be prepared
+separately at the end of the project.
+
 ## Conceptual starting point
 
 Park and Santamarina (2020), *The critical role of pore size on depth-dependent

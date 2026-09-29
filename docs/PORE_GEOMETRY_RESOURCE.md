@@ -198,3 +198,48 @@ representative quantitative artifact—not bulk imagery. The balanced first set:
 
 M3 stops at an evidence and schema resource: it makes no inferred cell fit,
 accessible porosity, or microbial × pore calculation.
+
+## Literature Lithology Atlas v1
+
+The source census and detailed ingestions are now complemented by a bounded
+literature atlas rather than another acquisition sweep. The atlas contains 40
+independent literature records (five per target high-level lithology), 49
+quantitative/context observation rows, 34 mapped natural settings, 18 compact
+state-stratified porosity/overview rows, and 28 reporting-grade
+state-and-void-class envelope rows. It explicitly separates publication,
+setting, specimen, measurement and object/bin evidence levels.
+
+The atlas is not a harmonised pore-size database. Source-native radius,
+diameter, MIP entry, image-object, adsorption-model, crack-aperture, vesicle and
+bulk-porosity meanings remain labelled. Review and Park & Santamarina benchmark
+rows inform envelopes without being counted as new field specimens. Laboratory
+packs remain identifiable and are not placed on the natural-site map.
+
+The scientific synthesis, coverage counts, preliminary envelopes and audit of
+the current detailed M3 sources are in
+[`M3_LITERATURE_LITHOLOGY_ATLAS_V1.md`](M3_LITERATURE_LITHOLOGY_ATLAS_V1.md).
+The canonical tracked tables are:
+
+- `data/catalogues/literature_lithology_atlas_sources_v1.csv`;
+- `data/catalogues/literature_lithology_atlas_observations_v1.csv`;
+- `data/catalogues/literature_lithology_atlas_locations_v1.csv`;
+- `data/catalogues/literature_lithology_atlas_coverage_v1.csv`;
+- `data/catalogues/literature_lithology_reference_envelopes_v1.csv`;
+- `data/catalogues/literature_lithology_void_envelopes_v1.csv`;
+- `data/catalogues/literature_lithology_porosity_summary_v1.csv`;
+- `data/catalogues/m3_literature_envelope_audit_v1.csv`.
+
+The quantitative companion,
+[`M3_LITERATURE_QUANTITATIVE_MEASUREMENTS_V1.md`](M3_LITERATURE_QUANTITATIVE_MEASUREMENTS_V1.md),
+re-expresses explicit published scalars, ranges, thresholds and distribution
+parameters from that bounded source set in
+`data/catalogues/literature_quantitative_measurements_v1.csv`. It excludes the
+detailed M3 sources to avoid duplication and keeps Park & Santamarina fitted
+pore-scale components as unresolved source-specific geometry rather than
+calling them pore bodies or throats. Its coverage table is
+`data/catalogues/literature_quantitative_coverage_v1.csv`.
+
+The atlas changes interpretation, not native data: Lipnice must be stratified
+by specimen state; CT/PNM results are resolved-population evidence; W23 is a
+model domain rather than an observed body; and crystalline bulk porosity,
+intrinsic nanoporosity and fracture transport remain separate quantities.

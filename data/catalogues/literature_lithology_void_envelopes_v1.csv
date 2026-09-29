@@ -1,0 +1,29 @@
+lithology,state_class,void_class,size_min_um,size_max_um,size_unit,supporting_source_ids,scope_note
+unconsolidated sand/sediment,intact/natural depositional fabric,intergranular pore,0.1,500,um,LIT-001|LIT-003|LIT-004,Fitted or image-scale pore domains; grain and depositional fabric vary.
+unconsolidated sand/sediment,intact/natural depositional fabric,pore throat / entry constriction,0.01,200,um,LIT-001|LIT-003|LIT-005,Do not equate grain coordination with a throat-size distribution.
+unconsolidated sand/sediment,laboratory/remoulded/packed,intergranular pore,0.1,500,um,LIT-001|LIT-002|LIT-003,Preparation changes fabric; not a natural-site envelope.
+unconsolidated sand/sediment,laboratory/remoulded/packed,pore throat / entry constriction,0.01,200,um,LIT-001|LIT-002|LIT-003,Resolved network values remain voxel-conditioned.
+sandstone,intact matrix,matrix/intergranular pore,0.002,200,um,LIT-001|LIT-006|LIT-007|LIT-008|LIT-009,Includes clay-associated and intergranular domains; method labels remain essential.
+sandstone,intact matrix,pore throat / entry constriction,0.003,10,um,LIT-001|LIT-008|LIT-009,MIP/gas-adsorption entry or throat scale; not a CT body radius.
+mudstone/shale,intact matrix,matrix pore,0.001,1,um,LIT-001|LIT-010|LIT-011|LIT-012|LIT-013,"Organic, clay and mineral pores; modelled domains are separately labelled."
+mudstone/shale,intact matrix,pore throat / entry constriction,0.002,0.2,um,LIT-001|LIT-011|LIT-013,Method-window-dependent nano/submicrometre entry scale.
+mudstone/shale,weathered/fractured/shallow,fracture-associated void,0.002,10,um,LIT-011|LIT-012,Fracture flow is not matrix-pore evidence.
+carbonate,intact matrix,matrix intercrystalline pore,0.01,10,um,LIT-001|LIT-015|LIT-016,Micritic/intercrystalline matrix domain.
+carbonate,intact matrix,pore body,0.01,100,um,LIT-001|LIT-014|LIT-015|LIT-017,Interparticle and moldic bodies remain distinct from their throats.
+carbonate,intact matrix,pore throat / entry constriction,0.01,100,um,LIT-014|LIT-016|LIT-017,Broad method-conditioned throat domain; the CT layer is coarse.
+carbonate,vuggy/dissolution/weathered,vug / dissolution cavity,10,10000,um,LIT-015|LIT-016|LIT-017,Large vugs do not imply equally large connecting throats.
+carbonate,vuggy/dissolution/weathered,pore throat / entry constriction,0.1,1000,um,LIT-015|LIT-016|LIT-017,Separate from vug-body scale.
+basalt/volcanic rock,dense/intact lava matrix,equant pore body,0.05,300,um,LIT-018|LIT-020|LIT-021,Dense basalt may contain both equant pores and crack modes.
+basalt/volcanic rock,dense/intact lava matrix,microcrack / crack,0.05,10,um,LIT-021|LIT-022,Crack-associated MIP mode; not an equant-pore body.
+basalt/volcanic rock,vesicular/scoria/brecciated,vesicle,10,10000,um,LIT-019|LIT-020,Vesicle-body state is not dense matrix.
+basalt/volcanic rock,vesicular/scoria/brecciated,pore throat / connecting aperture,0.1,100,um,LIT-019|LIT-022,Connecting apertures can be much smaller than vesicles.
+granite/granitoid,fresh/intact crystalline matrix,grain-boundary / intragranular pore,0.005,10,um,LIT-023|LIT-027,Matrix-scale porosity; do not merge with open fractures.
+granite/granitoid,fresh/intact crystalline matrix,microcrack / crack,0.005,10,um,LIT-023|LIT-024,Stereological/MIP crack-related domain; not a body distribution.
+granite/granitoid,altered/weathered/fractured/gouge,fracture-associated void,0.01,1000,um,LIT-023|LIT-025|LIT-026|LIT-027,"Special state, not a fresh-granite reference."
+gabbro/mafic crystalline,fresh/intact matrix,grain-boundary / intragranular pore,0.005,10,um,LIT-028|LIT-029|LIT-030|LIT-032,Low-porosity core-scale material; direct PSD evidence is sparse.
+gabbro/mafic crystalline,altered/fractured,fracture-associated void,0.01,100,um,LIT-028|LIT-029|LIT-030,Fracture-controlled transport is separate from matrix porosity.
+serpentinite/ultramafic,intact/moderately serpentinised,grain-boundary / reaction nanoporosity,0.001,0.1,um,LIT-033|LIT-034,Intrinsic lizardite/brucite nanoporosity; local interface values are not whole rock.
+serpentinite/ultramafic,fractured/weathered/dredged,fracture-associated void,0.001,100,um,LIT-028|LIT-035,Bulk and transport porosity can diverge strongly.
+metamorphic rock,dense intact quartzite/marble/gneiss/schist,matrix pore,0.002,1,um,LIT-037|LIT-038|LIT-040,Protolith and metamorphic fabric remain explicit.
+metamorphic rock,dense intact quartzite/marble/gneiss/schist,grain-boundary pore / microcrack,0.002,10,um,LIT-024|LIT-037|LIT-039,Grain-boundary cracks are not generic matrix pores.
+metamorphic rock,weathered/foliated/thermally cracked,fracture-associated void,0.01,1000,um,LIT-037|LIT-038|LIT-039|LIT-040,Structural/weathering/thermal special state.

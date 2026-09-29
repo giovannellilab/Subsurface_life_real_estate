@@ -1,0 +1,19 @@
+lithology,state_class,total_porosity_min_percent,total_porosity_max_percent,effective_porosity_min_percent,effective_porosity_max_percent,pore_body_or_matrix_scale_min_um,pore_body_or_matrix_scale_max_um,throat_or_constriction_scale_min_um,throat_or_constriction_scale_max_um,supporting_source_ids,scope_note
+unconsolidated sand/sediment,intact/natural or depositional fabric,25,60,,,0.1,500,0.01,200,LIT-001|LIT-003|LIT-004|LIT-005,"Very broad soil/sediment domain; clay, silt and sand cannot be treated as one universal PSD."
+unconsolidated sand/sediment,laboratory/remoulded/packed,25,50,,,0.1,500,0.01,200,LIT-001|LIT-002|LIT-003,Preparation history changes fabric and coordination.
+sandstone,"intact matrix, conventional through tight",1,30,,,0.002,200,0.003,10,LIT-001|LIT-006|LIT-007|LIT-008|LIT-009,"Includes nanometre clay pores, intergranular/dissolution bodies and MIP entry throats; method labels are essential."
+mudstone/shale,intact matrix,0.1,20,,,0.001,1,0.002,0.2,LIT-001|LIT-010|LIT-011|LIT-012|LIT-013,"Organic, clay and mineral pores dominate nano/submicron scales; cracks are separate."
+mudstone/shale,weathered/fractured/shallow,1,30,,,0.001,10,0.002,10,LIT-011|LIT-012,Fractures control flow but must not be folded into matrix PSD.
+carbonate,intact matrix,0.1,35,,,0.01,100,0.01,100,LIT-001|LIT-014|LIT-015|LIT-016|LIT-017,"Microporosity, interparticle and moldic systems coexist."
+carbonate,vuggy/dissolution/weathered,5,50,,,10,10000,0.1,1000,LIT-015|LIT-016|LIT-017,Vugs are bodies and do not imply equally large connecting throats.
+basalt/volcanic rock,dense/intact lava matrix,0.1,10,,,0.05,300,0.05,10,LIT-018|LIT-020|LIT-021|LIT-022,Crack and equant-pore modes may coexist.
+basalt/volcanic rock,vesicular/scoria/brecciated,10,70,,,10,10000,0.1,100,LIT-019|LIT-020,Large vesicles can remain poorly connected through small apertures.
+granite/granitoid,fresh/intact crystalline matrix,0.1,2,,,0.005,10,0.005,10,LIT-023|LIT-024|LIT-027,Mostly grain-boundary/intragranular microcracks and cleavage porosity.
+granite/granitoid,altered/weathered/fractured/gouge,0.5,15,,,0.01,1000,0.01,1000,LIT-023|LIT-025|LIT-026|LIT-027,State-specific extension; not an intact-matrix reference.
+gabbro/mafic crystalline,fresh/intact matrix,0.1,3,,,0.005,10,0.005,10,LIT-028|LIT-029|LIT-030|LIT-031|LIT-032,Core-scale porosity is low; cracks/fractures can dominate transport.
+gabbro/mafic crystalline,altered/fractured,0.5,10,,,0.01,100,0.01,100,LIT-028|LIT-029|LIT-030,Borehole log peaks and hydraulic permeability can be fracture dominated.
+serpentinite/ultramafic,intact/moderately serpentinised,0.1,5,,,0.001,0.1,0.001,0.1,LIT-028|LIT-033|LIT-034,Intrinsic lizardite/brucite porosity is predominantly nanoscale; local interface porosity is not whole-rock porosity.
+serpentinite/ultramafic,fractured/weathered/dredged,2,25,,,0.001,100,0.001,100,LIT-028|LIT-035,Bulk and transport porosity diverge strongly.
+serpentinite/ultramafic,mud-volcano/saponitic special state,35,55,,,,,,,LIT-036,Not representative of coherent serpentinite matrix.
+metamorphic rock,dense intact quartzite/marble/gneiss/schist,0.1,3,,,0.002,1,0.002,10,LIT-024|LIT-037|LIT-038|LIT-039|LIT-040,Protolith and fabric matter; matrix pores and grain-boundary cracks remain distinct.
+metamorphic rock,weathered/foliated/thermally cracked,1,20,,,0.01,100,0.01,1000,LIT-037|LIT-038|LIT-039|LIT-040,Structural/weathering/thermal microcracks are special states.
